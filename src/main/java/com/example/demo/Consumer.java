@@ -26,8 +26,10 @@ public class Consumer {
 	@JmsListener(destination = "elisa-mailbox")
 	public void receiveQueue(PlayerDetails text) {
 		System.out.println("====================>>>>>1");
-		System.out.println(text);
+		System.out.println(text.getName());
 		System.out.println("====================>>>>>2");
 	}
+
+	public void subscribe(){}
 
 }

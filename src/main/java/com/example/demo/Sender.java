@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * Created by martin.bonev on 7/19/17.
  */
 @Component
-public class Sender implements CommandLineRunner {
+public class Sender {
 
     private static final Logger logger = LoggerFactory.getLogger(Sender.class);
 
@@ -32,10 +32,5 @@ public class Sender implements CommandLineRunner {
         playerDetails.setName("test");
         template.convertAndSend("elisa-mailbox", playerDetails);
         logger.info("===>Sending email message.");
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        sendMessage();
     }
 }

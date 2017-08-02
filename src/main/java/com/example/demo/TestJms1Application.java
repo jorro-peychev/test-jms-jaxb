@@ -4,22 +4,14 @@ import generated.ObjectFactory;
 import generated.PlayerDetails;
 import java.util.HashMap;
 import java.util.Map;
-import javax.jms.ConnectionFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jms.annotation.EnableJms;
-import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
-import org.springframework.jms.config.JmsListenerContainerFactory;
-import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
-import org.springframework.jms.support.converter.MessageType;
 import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
-import org.springframework.validation.SmartValidator;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @SpringBootApplication
 @EnableJms
@@ -31,8 +23,8 @@ public class TestJms1Application {
 
 
 	@Bean
-	public MessageConverter hifJmsMessageConverter() {
-		return new MyConverter(unmarshaller(), marshaller());
+	public MessageConverter createJmsMessageConverter() {
+		return new JmsXmlConverter(unmarshaller(), marshaller());
 	}
 
 

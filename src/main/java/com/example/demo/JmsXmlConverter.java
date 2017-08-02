@@ -21,14 +21,14 @@ import org.springframework.oxm.Unmarshaller;
 /**
  * Created by georgi.peychev on 8/2/17.
  */
-public class MyConverter extends SimpleMessageConverter {
-  private static final Logger LOGGER = LoggerFactory.getLogger(MyConverter.class);
+public class JmsXmlConverter extends SimpleMessageConverter {
+  private static final Logger LOGGER = LoggerFactory.getLogger(JmsXmlConverter.class);
 
   private Unmarshaller unmarshaller;
   private Marshaller marshaller;
 
   @Autowired
-  public MyConverter(Unmarshaller unmarshaller, Marshaller marshaller) {
+  public JmsXmlConverter(Unmarshaller unmarshaller, Marshaller marshaller) {
     this.unmarshaller = unmarshaller;
     this.marshaller = marshaller;
   }
