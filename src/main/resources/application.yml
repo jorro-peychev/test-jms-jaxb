@@ -1,7 +1,7 @@
 spring:
   activemq:
 #    broker-url: tcp://localhost:61678
-    in-memory: false
+    in-memory: true
 
     pool:
       enabled: false

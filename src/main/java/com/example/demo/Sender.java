@@ -26,11 +26,31 @@ public class Sender {
     }
 
     public void sendMessage() {
-        logger.info("Sending email message.");
-        //Email email = new Email("me@test.invalid", "Hello (" + LocalDateTime.now() + ")!");
+        logger.info("Sending PlayerDetails message.");
         PlayerDetails playerDetails = new PlayerDetails();
         playerDetails.setName("test");
         template.convertAndSend("elisa-mailbox", playerDetails);
+        logger.info("===>Sending PlayerDetails message.");
+    }
+
+    public void sendWrongMessage() {
+        logger.info("Sending email message.");
+        //Email email = new Email("me@test.invalid", "Hello (" + LocalDateTime.now() + ")!");
+        Email email = new Email();
+        email.setSubject("test");
+        template.convertAndSend("elisa-mailbox", email);
         logger.info("===>Sending email message.");
+    }
+
+    class Email {
+        private String subject;
+
+        public String getSubject() {
+            return subject;
+        }
+
+        public void setSubject(String subject) {
+            this.subject = subject;
+        }
     }
 }

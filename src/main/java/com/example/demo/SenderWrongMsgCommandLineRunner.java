@@ -8,17 +8,17 @@ import org.springframework.stereotype.Component;
  * Created by georgi.peychev on 8/2/17.
  */
 @Component
-public class ProducerCommandLineRunner implements CommandLineRunner {
+public class SenderWrongMsgCommandLineRunner implements CommandLineRunner {
 
   private Sender sender;
 
   @Autowired
-  public ProducerCommandLineRunner(Sender sender) {
+  public SenderWrongMsgCommandLineRunner(Sender sender) {
     this.sender = sender;
   }
 
   @Override
   public void run(String... args) throws Exception {
-    sender.sendMessage();
+    //sender.sendWrongMessage();
   }
 }
