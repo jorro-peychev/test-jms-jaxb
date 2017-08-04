@@ -28,7 +28,7 @@ public class Sender {
     public void sendMessage() {
         logger.info("Sending PlayerDetails message.");
         PlayerDetails playerDetails = new PlayerDetails();
-        playerDetails.setName("test");
+        playerDetails.setName("test_________________________-1");
         template.convertAndSend("elisa-mailbox", playerDetails);
         logger.info("===>Sending PlayerDetails message.");
     }
