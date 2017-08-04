@@ -80,6 +80,12 @@ public class JmsConfigurator {
     final Jaxb2Marshaller unmarshaller = new Jaxb2Marshaller();
     unmarshaller.setPackagesToScan(ObjectFactory.class.getPackage().getName());
     unmarshaller.supports(PlayerDetails.class);
+
+    Resource schemaResource = applicationContext
+        .getResource("classpath:Player.xsd");
+
+    unmarshaller.setSchema(schemaResource);
+
     return unmarshaller;
   }
 }
